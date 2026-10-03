@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  monitor:
+    build: .
+    volumes:
+      - /home/alisa/scripts/server-monitor/nginx-output:/app/output
+
+  web:
+    image: nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - /home/alisa/scripts/server-monitor/nginx-output:/usr/share/nginx/html
